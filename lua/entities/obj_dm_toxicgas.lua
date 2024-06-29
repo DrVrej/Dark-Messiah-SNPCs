@@ -10,7 +10,7 @@ ENT.Base 			= "obj_vj_projectile_base"
 ENT.PrintName		= "Toxic Gas"
 ENT.Author 			= "DrVrej"
 ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Information		= "Projectiles for my addons"
+ENT.Information		= "Projectile, usually used for NPCs & Weapons"
 ENT.Category		= "Projectiles"
 
 if CLIENT then
@@ -24,14 +24,14 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 
-ENT.Model = {"models/spitball_medium.mdl"} -- The models it should spawn with | Picks a random one from the table
+ENT.Model = "models/spitball_medium.mdl" -- The models it should spawn with | Picks a random one from the table
 ENT.DoesRadiusDamage = true -- Should it do a blast damage when it hits something?
 ENT.RadiusDamageRadius = 200 -- How far the damage go? The farther away it's from its enemy, the less damage it will do | Counted in world units
 ENT.RadiusDamage = 30 -- How much damage should it deal? Remember this is a radius damage, therefore it will do less damage the farther away the entity is from its enemy
 ENT.RadiusDamageUseRealisticRadius = true -- Should the damage decrease the farther away the enemy is from the position that the projectile hit?
 ENT.RadiusDamageType = DMG_POISON -- Damage type
 //ENT.DecalTbl_DeathDecals = {"BeerSplash"}
-ENT.SoundTbl_Idle = {"vj_acid/acid_idle1.wav"}
+ENT.SoundTbl_Idle = "vj_acid/acid_idle1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomPhysicsObjectOnInitialize(phys)
 	phys:Wake()
@@ -48,8 +48,10 @@ function ENT:CustomOnThink()
 	ParticleEffectAttach("antlion_gib_02_gas", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
+local defAng = Angle(0, 0, 0)
+--
 function ENT:DeathEffects(data, phys)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, Angle(0,0,0), nil)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, Angle(0,0,0), nil)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, Angle(0,0,0), nil)
+	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
+	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
+	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
 end
