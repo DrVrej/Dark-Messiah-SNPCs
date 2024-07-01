@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_DARKMESSIAH/spider_regular.mdl" -- The game will pick a random model from the table when the SNPC is spawned | Add as many as you want
 ENT.StartHealth = 200
 ENT.HullType = HULL_TINY
-ENT.EntitiesToNoCollide = {"npc_vj_dmvj_spider_queen"}
+ENT.EntitiesToNoCollide = {"npc_vj_dm_spider_queen"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
 ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
@@ -23,7 +23,7 @@ ENT.TimeUntilMeleeAttackDamage = false -- This counted in seconds | This calcula
 
 ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
-ENT.RangeAttackEntityToSpawn = "obj_dm_toxicgas" -- The entity that is spawned when range attacking
+ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 800 -- This is how far away it can shoot
 ENT.RangeToMeleeDistance = 300 -- How close does it have to be until it uses melee?
 ENT.TimeUntilRangeAttackProjectileRelease = false -- How much time until the projectile code is ran?

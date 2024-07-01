@@ -28,7 +28,7 @@ ENT.MeleeAttackWorldShakeOnMiss = true -- Should it shake the world when it miss
 
 ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
 ENT.AnimTbl_RangeAttack = ACT_COWER -- Range Attack Animations
-ENT.RangeAttackEntityToSpawn = "obj_dm_toxicgas" -- The entity that is spawned when range attacking
+ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 10000 -- This is how far away it can shoot
 ENT.RangeToMeleeDistance = 1000 -- How close does it have to be until it uses melee?
 ENT.RangeUseAttachmentForPos = true -- Should the projectile spawn on a attachment?

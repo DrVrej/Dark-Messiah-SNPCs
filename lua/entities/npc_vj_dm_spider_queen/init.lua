@@ -9,7 +9,7 @@ ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl" -- The game will pick a ran
 ENT.StartHealth = 10000
 ENT.HullType = HULL_LARGE
 ENT.VJ_IsHugeMonster = true -- Is this a huge monster?
-ENT.EntitiesToNoCollide = {"npc_vj_dmvj_spider"}
+ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
 ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
@@ -31,7 +31,7 @@ ENT.MeleeAttackKnockBack_Up2 = 530 -- How far it will push you up | Second in ma
 
 ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
-ENT.RangeAttackEntityToSpawn = "obj_dm_toxicgas" -- The entity that is spawned when range attacking
+ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 9000 -- This is how far away it can shoot
 ENT.RangeToMeleeDistance = 800 -- How close does it have to be until it uses melee?
 ENT.TimeUntilRangeAttackProjectileRelease = false -- How much time until the projectile code is ran?
@@ -146,7 +146,7 @@ function ENT:CustomOnThink_AIEnabled()
 			effectDust:SetScale(1000)
 			util.Effect("ThumperDust", effectDust)
 			for i = 1, 3 do
-				local baby = ents.Create("npc_vj_dmvj_spider")
+				local baby = ents.Create("npc_vj_dm_spider")
 				baby:SetPos(myPos + self:GetRight()*(i == 3 and -120 or (i == 2 and 120 or 1)))
 				baby:SetAngles(self:GetAngles())
 				baby.Spider_AlwaysPlayDigOutAnim = true

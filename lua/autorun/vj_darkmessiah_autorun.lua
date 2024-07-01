@@ -14,10 +14,10 @@ if VJExists == true then
 
 	local spawnCategory = "Dark Messiah"
 
-	VJ.AddNPC("Spider Queen", "npc_vj_dmvj_spider_queen", spawnCategory)
-	VJ.AddNPC("Spider", "npc_vj_dmvj_spider", spawnCategory)
-	VJ.AddNPC("Giant Worm", "npc_vj_dmvj_giant_worm", spawnCategory)
-	VJ.AddNPC("FaceHugger", "npc_vj_dmvj_facehugger", spawnCategory)
+	VJ.AddNPC("Spider Queen", "npc_vj_dm_spider_queen", spawnCategory)
+	VJ.AddNPC("Spider", "npc_vj_dm_spider", spawnCategory)
+	VJ.AddNPC("Giant Worm", "npc_vj_dm_giant_worm", spawnCategory)
+	VJ.AddNPC("Facehugger", "npc_vj_dm_facehugger", spawnCategory)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------ Convars & Menu ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

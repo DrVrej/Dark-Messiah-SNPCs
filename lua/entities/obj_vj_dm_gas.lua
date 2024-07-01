@@ -15,7 +15,7 @@ ENT.Category		= "Projectiles"
 
 if CLIENT then
 	local Name = "Toxic Gas"
-	local LangName = "obj_dm_toxicgas"
+	local LangName = "obj_vj_dm_gas"
 	language.Add(LangName, Name)
 	killicon.Add(LangName,"HUD/killicons/default",Color(255,80,0,255))
 	language.Add("#"..LangName, Name)
