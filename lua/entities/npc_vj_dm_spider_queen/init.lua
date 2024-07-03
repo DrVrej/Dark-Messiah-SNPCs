@@ -96,7 +96,7 @@ function ENT:CustomOnInitialize()
 	PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Summoned!")
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:Controller_IntMsg(ply)
+function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Spawn Baby Spiders")
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
