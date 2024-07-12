@@ -55,16 +55,27 @@ ENT.SoundTbl_Death = {"vj_darkmessiah/spider/spider_dying0.wav","vj_darkmessiah/
 local sdStrike = {"vj_darkmessiah/spider/spider_striking0.wav","vj_darkmessiah/spider/spider_striking1.wav","vj_darkmessiah/spider/spider_striking2.wav","vj_darkmessiah/spider/spider_striking3.wav"}
 
 -- Custom
-ENT.Spider_AlwaysPlayDigOutAnim = false
+ENT.Spider_AlwaysBurrow = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnInitialize()
 	self:SetCollisionBounds(Vector(25, 25, 25), Vector(-25, -25, 0))
 	self:SetSurroundingBounds(Vector(70, 70, 80), Vector(-70, -70, 0))
-	if VJ_CVAR_AI_ENABLED && (math.random(1, 2) == 1 or self.Spider_AlwaysPlayDigOutAnim) then
+	
+	-- Burrow out animation
+	if VJ_CVAR_AI_ENABLED && (math.random(1, 2) == 1 or self.Spider_AlwaysBurrow) then
 		self:SetNoDraw(true)
 		self:SetState(VJ_STATE_FREEZE)
-		timer.Simple(0.05, function() if IsValid(self) then self:VJ_ACT_PLAYACTIVITY(ACT_ARM, true, false) end end)
-		timer.Simple(0.5, function() if IsValid(self) then self:SetNoDraw(false) self:SetState() end end)
+		timer.Simple(0.05, function()
+			if IsValid(self) then
+				self:VJ_ACT_PLAYACTIVITY(ACT_ARM, true, false)
+				timer.Simple(0.3, function()
+					if IsValid(self) then
+						self:SetNoDraw(false)
+						self:SetState()
+					end
+				end)
+			end
+		end)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

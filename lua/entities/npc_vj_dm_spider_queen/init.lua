@@ -149,7 +149,7 @@ function ENT:CustomOnThink_AIEnabled()
 				local baby = ents.Create("npc_vj_dm_spider")
 				baby:SetPos(myPos + self:GetRight()*(i == 3 and -120 or (i == 2 and 120 or 1)))
 				baby:SetAngles(self:GetAngles())
-				baby.Spider_AlwaysPlayDigOutAnim = true
+				baby.Spider_AlwaysBurrow = true
 				baby:Spawn()
 				baby:Activate()
 				baby:SetOwner(self)
