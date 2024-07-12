@@ -119,7 +119,7 @@ function ENT:CustomOnAcceptInput(key, activator, caller, data)
 	elseif key == "event_play Striking" then
 		self:PlaySoundSystem("BeforeMeleeAttack", sdOnMelee)
 	elseif key == "event_emit Whoosh" then
-		self:PlaySoundSystem("MeleeAttackMiss", sdOnMeleeWind, VJ_EmitSound)
+		self:PlaySoundSystem("MeleeAttackMiss", sdOnMeleeWind, VJ.EmitSound)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ function ENT:CustomOnThink_AIEnabled()
 				self.VJ_TheController:PrintMessage(HUD_PRINTCENTER, "Spawning Spiders! Cooldown: " .. self.SpiderQ_NextBirthTime .. " seconds!")
 			end
 			util.ScreenShake(myPos, 100, 200, 5, 3000)
-			VJ_EmitSound(self, sdSpawnBabies, 100, math.random(80, 100))
+			VJ.EmitSound(self, sdSpawnBabies, 100, math.random(80, 100))
 			local effectDust = EffectData()
 			effectDust:SetOrigin(myPos)
 			effectDust:SetScale(1000)

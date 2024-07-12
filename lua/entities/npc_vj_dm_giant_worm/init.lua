@@ -120,7 +120,7 @@ function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
 			local effectDust = EffectData()
 			effectDust:SetOrigin(self:GetPos())
 			util.Effect("VJ_Medium_Dust1", effectDust)
-			if self.HasSounds == true && self.HasDeathSounds == true then VJ_EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
+			if self.HasSounds == true && self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
 		end
 	end)
 end
