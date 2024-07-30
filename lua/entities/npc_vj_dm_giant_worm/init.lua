@@ -31,8 +31,6 @@ ENT.AnimTbl_RangeAttack = ACT_COWER -- Range Attack Animations
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 10000 -- This is how far away it can shoot
 ENT.RangeToMeleeDistance = 1000 -- How close does it have to be until it uses melee?
-ENT.RangeUseAttachmentForPos = true -- Should the projectile spawn on a attachment?
-ENT.RangeUseAttachmentForPosID = "poison" -- The attachment used on the range attack if RangeUseAttachmentForPos is set to true
 ENT.NextRangeAttackTime = 0 -- How much time until it can use a range attack?
 ENT.TimeUntilRangeAttackProjectileRelease = 1.8 -- How much time until the projectile code is ran?
 
@@ -105,7 +103,11 @@ function ENT:MeleeAttackKnockbackVelocity(hitEnt)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:RangeAttackCode_GetShootPos(projectile)
+function ENT:RangeAttackProjSpawnPos(projectile)
+	return self:GetAttachment(self:LookupAttachment("poison")).Pos
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:RangeAttackProjVelocity(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 10)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
