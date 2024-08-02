@@ -5,7 +5,7 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl" -- The game will pick a random model from the table when the SNPC is spawned | Add as many as you want
+ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
 ENT.StartHealth = 10000
 ENT.HullType = HULL_LARGE
 ENT.VJ_IsHugeMonster = true -- Is this a huge monster?
@@ -16,7 +16,7 @@ ENT.BloodColor = "Red" -- The blood type, this will determine what it should use
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
 ENT.Immune_Physics = true -- If set to true, the SNPC won't take damage from props
 
-ENT.HasMeleeAttack = true -- Should the SNPC have a melee attack?
+ENT.HasMeleeAttack = true -- Can this NPC melee attack?
 ENT.AnimTbl_MeleeAttack = {ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK2}
 	-- Belly attack has 1 in 6 chance
 ENT.MeleeAttackAnimationFaceEnemy = false -- Should it face the enemy while playing the melee attack animation?
@@ -29,7 +29,7 @@ ENT.MeleeAttackKnockBack_Forward2 = 730 -- How far it will push you forward | Se
 ENT.MeleeAttackKnockBack_Up1 = 500 -- How far it will push you up | First in math.random
 ENT.MeleeAttackKnockBack_Up2 = 530 -- How far it will push you up | Second in math.random
 
-ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
+ENT.HasRangeAttack = true -- Can this NPC range attack?
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 9000 -- This is how far away it can shoot
@@ -51,7 +51,7 @@ ENT.AnimTbl_Death = ACT_DIESIMPLE -- Death Animations
 ENT.DisableFootStepSoundTimer = true -- If set to true, it will disable the time system for the footstep sound code, allowing you to use other ways like model events
 ENT.HasWorldShakeOnMove = true -- Should the world shake when it's moving?
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
-ENT.HasSoundTrack = true -- Does the SNPC have a sound track?
+ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 	-- ====== Sound File Paths ====== --
 -- Leave blank if you don't want any sounds to play
 ENT.SoundTbl_FootStep = {"vj_darkmessiah/spiderqueen/hit1.wav","vj_darkmessiah/spiderqueen/hit2.wav","vj_darkmessiah/spiderqueen/hit3.wav"}

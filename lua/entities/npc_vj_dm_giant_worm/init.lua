@@ -5,11 +5,11 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = "models/VJ_DARKMESSIAH/giantworm.mdl" -- The game will pick a random model from the table when the SNPC is spawned | Add as many as you want
+ENT.Model = "models/VJ_DARKMESSIAH/giantworm.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
 ENT.StartHealth = 8000
 ENT.HullType = HULL_LARGE
 ENT.VJ_IsHugeMonster = true -- Is this a huge monster?
-ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How does the SNPC move?
+ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How the NPC moves around
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
 ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
@@ -17,7 +17,7 @@ ENT.HasBloodPool = false -- Does it have a blood pool?
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
 ENT.Immune_Physics = true -- If set to true, the SNPC won't take damage from props
 
-ENT.HasMeleeAttack = true -- Should the SNPC have a melee attack?
+ENT.HasMeleeAttack = true -- Can this NPC melee attack?
 ENT.AnimTbl_MeleeAttack = ACT_RELOAD -- Melee Attack Animations
 ENT.MeleeAttackDistance = 950 -- How close an enemy has to be to trigger a melee attack | false = Let the base auto calculate on initialize based on the NPC's collision bounds
 ENT.MeleeAttackDamageDistance = 1100 -- How far does the damage go | false = Let the base auto calculate on initialize based on the NPC's collision bounds
@@ -26,7 +26,7 @@ ENT.MeleeAttackDamage = 90
 ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
 ENT.MeleeAttackWorldShakeOnMiss = true -- Should it shake the world when it misses during melee attack?
 
-ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
+ENT.HasRangeAttack = true -- Can this NPC range attack?
 ENT.AnimTbl_RangeAttack = ACT_COWER -- Range Attack Animations
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
 ENT.RangeDistance = 10000 -- This is how far away it can shoot
@@ -34,11 +34,11 @@ ENT.RangeToMeleeDistance = 1000 -- How close does it have to be until it uses me
 ENT.NextRangeAttackTime = 0 -- How much time until it can use a range attack?
 ENT.TimeUntilRangeAttackProjectileRelease = 1.8 -- How much time until the projectile code is ran?
 
-ENT.HasDeathRagdoll = false -- If set to false, it will not spawn the regular ragdoll of the SNPC
+ENT.HasDeathRagdoll = false -- Should the NPC spawn a corpse when it dies?
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
 ENT.AnimTbl_Death = "worm_die" -- Death Animations
-ENT.DeathAnimationTime = false -- Time until the SNPC spawns its corpse and gets removed
-ENT.HasSoundTrack = true -- Does the SNPC have a sound track?
+ENT.DeathAnimationTime = false -- Time until the NPC spawns its corpse and gets removed
+ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 	-- ====== Flinching Code ====== --
 ENT.CanFlinch = 2 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 7 -- Chance of it flinching from 1 to x | 1 will make it always flinch
