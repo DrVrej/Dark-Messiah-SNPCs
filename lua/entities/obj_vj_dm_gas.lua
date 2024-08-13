@@ -31,7 +31,7 @@ ENT.RadiusDamage = 30 -- How much damage should it deal? Remember this is a radi
 ENT.RadiusDamageUseRealisticRadius = true -- Should the damage decrease the farther away the enemy is from the position that the projectile hit?
 ENT.RadiusDamageType = DMG_POISON -- Damage type
 //ENT.DecalTbl_DeathDecals = {"BeerSplash"}
-ENT.SoundTbl_Idle = "vj_acid/acid_idle1.wav"
+ENT.SoundTbl_Idle = "vj_base/ambience/acid_idle.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomPhysicsObjectOnInitialize(phys)
 	phys:Wake()
