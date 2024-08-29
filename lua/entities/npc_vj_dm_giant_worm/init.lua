@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_DARKMESSIAH/giantworm.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
 ENT.StartHealth = 8000
 ENT.HullType = HULL_LARGE
-ENT.VJ_IsHugeMonster = true -- Is this a huge monster?
+ENT.VJTag_ID_Boss = true -- Is this a huge monster?
 ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How the NPC moves around
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
