@@ -43,8 +43,7 @@ ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 ENT.CanFlinch = 2 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 7 -- Chance of it flinching from 1 to x | 1 will make it always flinch
 ENT.AnimTbl_Flinch = {"worm_hit_back", "worm_hit_front"} -- If it uses normal based animation, use this
-	-- ====== Sound File Paths ====== --
--- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_Breath = {"vj_darkmessiah/giantworm/worm_idleloop.wav"}
 ENT.SoundTbl_Idle = {"vj_darkmessiah/giantworm/worm_strafe0.wav","vj_darkmessiah/giantworm/worm_strafe1.wav","vj_darkmessiah/giantworm/worm_strafe2.wav","vj_darkmessiah/giantworm/worm_strafe3.wav","vj_darkmessiah/giantworm/worm_idle0.wav","vj_darkmessiah/giantworm/worm_idle1.wav","vj_darkmessiah/giantworm/worm_idle2.wav","vj_darkmessiah/giantworm/worm_idlegrowl0.wav","vj_darkmessiah/giantworm/worm_idlegrowl1.wav"}
 ENT.SoundTbl_Alert = {"vj_darkmessiah/giantworm/worm_in_quick.wav","vj_darkmessiah/giantworm/worm_idlegrowl2.wav","vj_darkmessiah/giantworm/worm_idlegrowl3.wav"}

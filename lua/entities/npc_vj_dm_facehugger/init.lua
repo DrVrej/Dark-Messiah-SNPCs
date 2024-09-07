@@ -24,8 +24,7 @@ ENT.AnimTbl_Death = "die_1" -- Death Animations
 ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
 ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"} -- If it uses normal based animation, use this
-	-- ====== Sound File Paths ====== --
--- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_Idle = {"vj_darkmessiah/facehugger/facehugger_misc0.wav","vj_darkmessiah/facehugger/facehugger_misc1.wav","vj_darkmessiah/facehugger/facehugger_misc2.wav"}
 ENT.SoundTbl_Alert = {"vj_darkmessiah/facehugger/facehugger_threat0.wav","vj_darkmessiah/facehugger/facehugger_threat1.wav","vj_darkmessiah/facehugger/facehugger_threat2.wav"}
 ENT.SoundTbl_BeforeMeleeAttack = {"vj_darkmessiah/facehugger/facehugger_striking0.wav","vj_darkmessiah/facehugger/facehugger_striking1.wav","vj_darkmessiah/facehugger/facehugger_striking2.wav"}

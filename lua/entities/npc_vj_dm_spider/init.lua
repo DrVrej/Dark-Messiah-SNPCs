@@ -41,8 +41,7 @@ ENT.HitGroupFlinching_Values = {
 	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
 	{HitGroup={107}, Animation={ACT_FLINCH_RIGHTLEG}}
 }
-	-- ====== Sound File Paths ====== --
--- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_Idle = {"vj_darkmessiah/spider/spider_misc0.wav","vj_darkmessiah/spider/spider_misc2.wav","vj_darkmessiah/spider/spider_misc3.wav","vj_darkmessiah/spider/spider_hail0.wav","vj_darkmessiah/spider/spider_hail1.wav","vj_darkmessiah/spider/spider_hail2.wav"}
 ENT.SoundTbl_Alert = {"vj_darkmessiah/spider/spider_misc1.wav","vj_darkmessiah/spider/spider_threat0.wav","vj_darkmessiah/spider/spider_threat1.wav","vj_darkmessiah/spider/spider_threat2.wav","vj_darkmessiah/spider/spider_guardmode0.wav","vj_darkmessiah/spider/spider_guardmode1.wav","vj_darkmessiah/spider/spider_guardmode2.wav"}
 ENT.SoundTbl_MeleeAttackMiss = {"npc/zombie/claw_miss1.wav","npc/zombie/claw_miss2.wav"}

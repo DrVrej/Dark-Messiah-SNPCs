@@ -52,8 +52,7 @@ ENT.DisableFootStepSoundTimer = true -- If set to true, it will disable the time
 ENT.HasWorldShakeOnMove = true -- Should the world shake when it's moving?
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 ENT.HasSoundTrack = true -- Does the NPC have a sound track?
-	-- ====== Sound File Paths ====== --
--- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_FootStep = {"vj_darkmessiah/spiderqueen/hit1.wav","vj_darkmessiah/spiderqueen/hit2.wav","vj_darkmessiah/spiderqueen/hit3.wav"}
 ENT.SoundTbl_Idle = {"vj_darkmessiah/spiderqueen/spidermonster_misc0.wav","vj_darkmessiah/spiderqueen/spidermonster_misc1.wav","vj_darkmessiah/spiderqueen/spidermonster_misc2.wav"}
 ENT.SoundTbl_Alert = {"vj_darkmessiah/spiderqueen/spidermonster_entrance_end.wav","vj_darkmessiah/spiderqueen/spidermonster_threat0.wav","vj_darkmessiah/spiderqueen/spidermonster_threat1.wav","vj_darkmessiah/spiderqueen/spidermonster_threat2.wav"}
