@@ -24,7 +24,6 @@ ENT.MeleeAttackDamageDistance = 1100 -- How far does the damage go | false = Let
 ENT.TimeUntilMeleeAttackDamage = 2.1 -- This counted in seconds | This calculates the time until it hits something
 ENT.MeleeAttackDamage = 90
 ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
-ENT.MeleeAttackWorldShakeOnMiss = true -- Should it shake the world when it misses during melee attack?
 
 ENT.HasRangeAttack = true -- Can this NPC range attack?
 ENT.AnimTbl_RangeAttack = ACT_COWER -- Range Attack Animations
@@ -100,6 +99,10 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:MeleeAttackKnockbackVelocity(hitEnt)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnMeleeAttack_Miss()
+	util.ScreenShake(self:GetPos(), 16, 100, 1, 2500)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:RangeAttackProjSpawnPos(projectile)

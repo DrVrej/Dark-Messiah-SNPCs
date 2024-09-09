@@ -24,10 +24,6 @@ ENT.MeleeAttackDistance = 250 -- How close an enemy has to be to trigger a melee
 ENT.MeleeAttackDamageDistance = 350 -- How far does the damage go | false = Let the base auto calculate on initialize based on the NPC's collision bounds
 ENT.TimeUntilMeleeAttackDamage = false -- This counted in seconds | This calculates the time until it hits something
 ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
-ENT.MeleeAttackKnockBack_Forward1 = 700 -- How far it will push you forward | First in math.random
-ENT.MeleeAttackKnockBack_Forward2 = 730 -- How far it will push you forward | Second in math.random
-ENT.MeleeAttackKnockBack_Up1 = 500 -- How far it will push you up | First in math.random
-ENT.MeleeAttackKnockBack_Up2 = 530 -- How far it will push you up | Second in math.random
 
 ENT.HasRangeAttack = true -- Can this NPC range attack?
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
@@ -49,7 +45,6 @@ ENT.HitGroupFlinching_Values = {
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
 ENT.AnimTbl_Death = ACT_DIESIMPLE -- Death Animations
 ENT.DisableFootStepSoundTimer = true -- If set to true, it will disable the time system for the footstep sound code, allowing you to use other ways like model events
-ENT.HasWorldShakeOnMove = true -- Should the world shake when it's moving?
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 	-- ====== Sound Paths ====== --
@@ -124,6 +119,10 @@ function ENT:GetSightDirection()
 	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnFootStepSound(moveType, sdFile)
+	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 2000)
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnThink_AIEnabled()
 	if self.SpiderQ_AllowSpawning && IsValid(self:GetEnemy()) && CurTime() > self.SpiderQ_NextBirthT && ((self.VJ_IsBeingControlled == false) or (self.VJ_IsBeingControlled == true && self.VJ_TheController:KeyDown(IN_JUMP))) then
 		local babyTbl = self.SpiderQ_BabySpidersTbl
@@ -160,6 +159,10 @@ end
 function ENT:CustomOnAlert()
 	if self.VJ_IsBeingControlled then return end
 	self:VJ_ACT_PLAYACTIVITY(ACT_IDLE_ANGRY, true, false, true)
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:MeleeAttackKnockbackVelocity(hitEnt)
+	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnMeleeAttack_Miss()
