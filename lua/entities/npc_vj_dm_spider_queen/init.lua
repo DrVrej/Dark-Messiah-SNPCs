@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
 ENT.StartHealth = 10000
 ENT.HullType = HULL_LARGE
-ENT.VJTag_ID_Boss = true -- Is this a huge monster?
+ENT.VJTag_ID_Boss = true
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
@@ -26,16 +26,16 @@ ENT.TimeUntilMeleeAttackDamage = false -- This counted in seconds | This calcula
 ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
 
 ENT.HasRangeAttack = true -- Can this NPC range attack?
-ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
+ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
-ENT.RangeDistance = 9000 -- This is how far away it can shoot
+ENT.RangeDistance = 9000 -- How far can it range attack?
 ENT.RangeToMeleeDistance = 800 -- How close does it have to be until it uses melee?
 ENT.TimeUntilRangeAttackProjectileRelease = false -- How much time until the projectile code is ran?
 ENT.NextRangeAttackTime = 4 -- How much time until it can use a range attack?
 
 ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = ACT_BIG_FLINCH -- If it uses normal based animation, use this
+ENT.AnimTbl_Flinch = ACT_BIG_FLINCH -- The regular flinch animations to play
 ENT.HitGroupFlinching_Values = {
 	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
 	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
@@ -43,7 +43,7 @@ ENT.HitGroupFlinching_Values = {
 }
 
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
-ENT.AnimTbl_Death = ACT_DIESIMPLE -- Death Animations
+ENT.AnimTbl_Death = ACT_DIESIMPLE
 ENT.DisableFootStepSoundTimer = true -- If set to true, it will disable the time system for the footstep sound code, allowing you to use other ways like model events
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 ENT.HasSoundTrack = true -- Does the NPC have a sound track?
@@ -75,7 +75,7 @@ ENT.DeathSoundLevel = 100
 ENT.SpiderQ_AllowSpawning = true
 ENT.SpiderQ_NextBirthT = 0
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnInitialize()
+function ENT:Init()
 	self:SetCollisionBounds(Vector(120, 120, 230), Vector(-120, -120, 0))
 	self:SetSurroundingBounds(Vector(400, 400, 330), Vector(-400, -400, 0))
 	self:SetStepHeight(200)
@@ -92,7 +92,7 @@ function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Spawn Baby Spiders")
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnAcceptInput(key, activator, caller, data)
+function ENT:OnInput(key, activator, caller, data)
 	//print(key)
 	if key == "event_emit Foot" then
 		self:FootStepSoundCode()
@@ -119,11 +119,11 @@ function ENT:GetSightDirection()
 	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnFootStepSound(moveType, sdFile)
+function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 2000)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink_AIEnabled()
+function ENT:OnThinkActive()
 	if self.SpiderQ_AllowSpawning && IsValid(self:GetEnemy()) && CurTime() > self.SpiderQ_NextBirthT && ((self.VJ_IsBeingControlled == false) or (self.VJ_IsBeingControlled == true && self.VJ_TheController:KeyDown(IN_JUMP))) then
 		local babyTbl = self.SpiderQ_BabySpidersTbl
 		for k, v in pairs(babyTbl) do
@@ -156,7 +156,7 @@ function ENT:CustomOnThink_AIEnabled()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnAlert()
+function ENT:OnAlert(ent)
 	if self.VJ_IsBeingControlled then return end
 	self:VJ_ACT_PLAYACTIVITY(ACT_IDLE_ANGRY, true, false, true)
 end
@@ -188,20 +188,23 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local bAND = bit.band
 --
-function ENT:CustomOnFlinch_BeforeFlinch(dmginfo, hitgroup)
-	-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
-	if bAND(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
-		return true
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:OnFlinch(dmginfo, hitgroup, status)
+	if status == "PriorExecution" then
+		-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
+		if bAND(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
+			return true
+		end
+		return false
 	end
-	return false
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnPriorToKilled(dmginfo, hitgroup)
-	PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Defeated!")
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
-	util.ScreenShake(self:GetPos(), 100, 200, 5, 3000)
+function ENT:OnDeath(dmginfo, hitgroup, status)
+	if status == "Initial" then
+		PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Defeated!")
+	elseif status == "DeathAnim" then
+		util.ScreenShake(self:GetPos(), 100, 200, 5, 3000)
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnRemove()

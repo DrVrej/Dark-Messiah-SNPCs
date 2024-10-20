@@ -22,20 +22,20 @@ ENT.MeleeAttackDamageDistance = 70 -- How far does the damage go | false = Let t
 ENT.TimeUntilMeleeAttackDamage = false -- This counted in seconds | This calculates the time until it hits something
 
 ENT.HasRangeAttack = true -- Can this NPC range attack?
-ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1 -- Range Attack Animations
+ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
-ENT.RangeDistance = 800 -- This is how far away it can shoot
+ENT.RangeDistance = 800 -- How far can it range attack?
 ENT.RangeToMeleeDistance = 300 -- How close does it have to be until it uses melee?
 ENT.TimeUntilRangeAttackProjectileRelease = false -- How much time until the projectile code is ran?
 ENT.NextRangeAttackTime = 4 -- How much time until it can use a range attack?
 
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
-ENT.AnimTbl_Death = ACT_DIESIMPLE -- Death Animations
+ENT.AnimTbl_Death = ACT_DIESIMPLE
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 	-- ====== Flinching Code ====== --
 ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = ACT_BIG_FLINCH -- If it uses normal based animation, use this
+ENT.AnimTbl_Flinch = ACT_BIG_FLINCH -- The regular flinch animations to play
 ENT.HitGroupFlinching_Values = {
 	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
 	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
@@ -54,7 +54,7 @@ local sdStrike = {"vj_darkmessiah/spider/spider_striking0.wav","vj_darkmessiah/s
 -- Custom
 ENT.Spider_AlwaysBurrow = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnInitialize()
+function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 25), Vector(-25, -25, 0))
 	self:SetSurroundingBounds(Vector(70, 70, 80), Vector(-70, -70, 0))
 	
@@ -76,7 +76,7 @@ function ENT:CustomOnInitialize()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnAcceptInput(key, activator, caller, data) 
+function ENT:OnInput(key, activator, caller, data) 
 	//print(key)
 	if key == "event_mattack a" or key == "event_mattack b" or key == "event_mattack c" or key == "event_mattack d" or key == "event_mattack e" then
 		self:MeleeAttackCode()

@@ -19,11 +19,11 @@ ENT.MeleeAttackDamageDistance = 70 -- How far does the damage go | false = Let t
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
 ENT.DeathAnimationChance = 5 -- Put 1 if you want it to play the animation all the time
-ENT.AnimTbl_Death = "die_1" -- Death Animations
+ENT.AnimTbl_Death = "die_1"
 	-- ====== Flinching Code ====== --
 ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"} -- If it uses normal based animation, use this
+ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"} -- The regular flinch animations to play
 	-- ====== Sound Paths ====== --
 ENT.SoundTbl_Idle = {"vj_darkmessiah/facehugger/facehugger_misc0.wav","vj_darkmessiah/facehugger/facehugger_misc1.wav","vj_darkmessiah/facehugger/facehugger_misc2.wav"}
 ENT.SoundTbl_Alert = {"vj_darkmessiah/facehugger/facehugger_threat0.wav","vj_darkmessiah/facehugger/facehugger_threat1.wav","vj_darkmessiah/facehugger/facehugger_threat2.wav"}
@@ -34,7 +34,7 @@ ENT.SoundTbl_Death = {"vj_darkmessiah/facehugger/facehugger_dying0.wav","vj_dark
 -- Custom
 ENT.FaceH_IdleAnims = {ACT_IDLE}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnInitialize()
+function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 40), Vector(-13, -13, 0))
 	self:SetSurroundingBounds(Vector(50, 50, 100), Vector(-50, -50, 0))
 	self:CapabilitiesAdd(bit.bor(CAP_MOVE_JUMP, CAP_MOVE_CLIMB))

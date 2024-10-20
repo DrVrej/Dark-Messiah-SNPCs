@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_DARKMESSIAH/giantworm.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
 ENT.StartHealth = 8000
 ENT.HullType = HULL_LARGE
-ENT.VJTag_ID_Boss = true -- Is this a huge monster?
+ENT.VJTag_ID_Boss = true
 ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How the NPC moves around
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
@@ -18,7 +18,7 @@ ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid
 ENT.Immune_Physics = true -- If set to true, the SNPC won't take damage from props
 
 ENT.HasMeleeAttack = true -- Can this NPC melee attack?
-ENT.AnimTbl_MeleeAttack = ACT_RELOAD -- Melee Attack Animations
+ENT.AnimTbl_MeleeAttack = ACT_RELOAD
 ENT.MeleeAttackDistance = 950 -- How close an enemy has to be to trigger a melee attack | false = Let the base auto calculate on initialize based on the NPC's collision bounds
 ENT.MeleeAttackDamageDistance = 1100 -- How far does the damage go | false = Let the base auto calculate on initialize based on the NPC's collision bounds
 ENT.TimeUntilMeleeAttackDamage = 2.1 -- This counted in seconds | This calculates the time until it hits something
@@ -26,22 +26,22 @@ ENT.MeleeAttackDamage = 90
 ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
 
 ENT.HasRangeAttack = true -- Can this NPC range attack?
-ENT.AnimTbl_RangeAttack = ACT_COWER -- Range Attack Animations
+ENT.AnimTbl_RangeAttack = ACT_COWER
 ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
-ENT.RangeDistance = 10000 -- This is how far away it can shoot
+ENT.RangeDistance = 10000 -- How far can it range attack?
 ENT.RangeToMeleeDistance = 1000 -- How close does it have to be until it uses melee?
 ENT.NextRangeAttackTime = 0 -- How much time until it can use a range attack?
 ENT.TimeUntilRangeAttackProjectileRelease = 1.8 -- How much time until the projectile code is ran?
 
-ENT.HasDeathRagdoll = false -- Should the NPC spawn a corpse when it dies?
+ENT.HasDeathCorpse = false -- Should a corpse spawn when it's killed?
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
-ENT.AnimTbl_Death = "worm_die" -- Death Animations
-ENT.DeathAnimationTime = false -- Time until the NPC spawns its corpse and gets removed
+ENT.AnimTbl_Death = "worm_die"
+ENT.DeathAnimationTime = false -- How long should the death animation play?
 ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 	-- ====== Flinching Code ====== --
 ENT.CanFlinch = 2 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
 ENT.FlinchChance = 7 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = {"worm_hit_back", "worm_hit_front"} -- If it uses normal based animation, use this
+ENT.AnimTbl_Flinch = {"worm_hit_back", "worm_hit_front"} -- The regular flinch animations to play
 	-- ====== Sound Paths ====== --
 ENT.SoundTbl_Breath = {"vj_darkmessiah/giantworm/worm_idleloop.wav"}
 ENT.SoundTbl_Idle = {"vj_darkmessiah/giantworm/worm_strafe0.wav","vj_darkmessiah/giantworm/worm_strafe1.wav","vj_darkmessiah/giantworm/worm_strafe2.wav","vj_darkmessiah/giantworm/worm_strafe3.wav","vj_darkmessiah/giantworm/worm_idle0.wav","vj_darkmessiah/giantworm/worm_idle1.wav","vj_darkmessiah/giantworm/worm_idle2.wav","vj_darkmessiah/giantworm/worm_idlegrowl0.wav","vj_darkmessiah/giantworm/worm_idlegrowl1.wav"}
@@ -65,7 +65,7 @@ ENT.RangeAttackSoundLevel = 100
 -- Custom
 ENT.Worm_IdleAngryAnim = ACT_IDLE
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnInitialize()
+function ENT:Init()
 	self:SetCollisionBounds(Vector(185, 185, 1900), Vector(-185, -185, 0))
 	self:SetSurroundingBounds(Vector(600, 600, 2200), Vector(-600, -600, 0))
 	self.Worm_IdleAngryAnim = self:GetSequenceActivity(self:LookupSequence("combatidle"))
@@ -84,7 +84,7 @@ function ENT:GetSightDirection()
 	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink()
+function ENT:OnThink()
 	if self.Worm_CreateMouthEffect then
 		ParticleEffectAttach("antlion_gib_02_gas", PATTACH_POINT_FOLLOW, self, 2)
 	end
@@ -92,7 +92,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local alertAnims = {"vjseq_worm_taunt_01", "vjseq_worm_taunt_02", "vjseq_worm_grunt"}
 --
-function ENT:CustomOnAlert()
+function ENT:OnAlert(ent)
 	if self.VJ_IsBeingControlled == true then return end
 	self:VJ_ACT_PLAYACTIVITY(alertAnims, true, false, true)
 end
@@ -113,18 +113,18 @@ function ENT:RangeAttackProjVelocity(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 10)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnPriorToKilled(dmginfo, hitgroup)
-	PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Defeated!")
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
-	util.ScreenShake(self:GetPos(), 100, 200, 5.5, 3000)
-	timer.Simple(2.5, function()
-		if IsValid(self) then
-			local effectDust = EffectData()
-			effectDust:SetOrigin(self:GetPos())
-			util.Effect("VJ_Medium_Dust1", effectDust)
-			if self.HasSounds == true && self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
-		end
-	end)
+function ENT:OnDeath(dmginfo, hitgroup, status)
+	if status == "Initial" then
+		PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Defeated!")
+	elseif status == "DeathAnim" then
+		util.ScreenShake(self:GetPos(), 100, 200, 5.5, 3000)
+		timer.Simple(2.5, function()
+			if IsValid(self) then
+				local effectDust = EffectData()
+				effectDust:SetOrigin(self:GetPos())
+				util.Effect("VJ_Medium_Dust1", effectDust)
+				if self.HasSounds == true && self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
+			end
+		end)
+	end
 end
