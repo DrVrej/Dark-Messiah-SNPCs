@@ -94,7 +94,7 @@ local alertAnims = {"vjseq_worm_taunt_01", "vjseq_worm_taunt_02", "vjseq_worm_gr
 --
 function ENT:OnAlert(ent)
 	if self.VJ_IsBeingControlled == true then return end
-	self:VJ_ACT_PLAYACTIVITY(alertAnims, true, false, true)
+	self:PlayAnim(alertAnims, true, false, true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:MeleeAttackKnockbackVelocity(hitEnt)

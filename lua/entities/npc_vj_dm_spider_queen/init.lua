@@ -158,7 +158,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnAlert(ent)
 	if self.VJ_IsBeingControlled then return end
-	self:VJ_ACT_PLAYACTIVITY(ACT_IDLE_ANGRY, true, false, true)
+	self:PlayAnim(ACT_IDLE_ANGRY, true, false, true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:MeleeAttackKnockbackVelocity(hitEnt)

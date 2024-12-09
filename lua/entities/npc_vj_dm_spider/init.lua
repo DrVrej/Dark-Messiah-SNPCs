@@ -64,7 +64,7 @@ function ENT:Init()
 		self:SetState(VJ_STATE_FREEZE)
 		timer.Simple(0.05, function()
 			if IsValid(self) then
-				self:VJ_ACT_PLAYACTIVITY(ACT_ARM, true, false)
+				self:PlayAnim(ACT_ARM, true, false)
 				timer.Simple(0.3, function()
 					if IsValid(self) then
 						self:SetNoDraw(false)
