@@ -93,7 +93,7 @@ end
 local alertAnims = {"vjseq_worm_taunt_01", "vjseq_worm_taunt_02", "vjseq_worm_grunt"}
 --
 function ENT:OnAlert(ent)
-	if self.VJ_IsBeingControlled == true then return end
+	if self.VJ_IsBeingControlled then return end
 	self:PlayAnim(alertAnims, true, false, true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
