@@ -115,10 +115,6 @@ function ENT:OnInput(key, activator, caller, data)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:GetSightDirection()
-	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
-end
----------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 2000)
 end

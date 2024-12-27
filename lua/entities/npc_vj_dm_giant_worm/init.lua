@@ -80,10 +80,6 @@ function ENT:TranslateActivity(act)
 	return self.BaseClass.TranslateActivity(self, act)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:GetSightDirection()
-	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
-end
----------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnThink()
 	if self.Worm_CreateMouthEffect then
 		ParticleEffectAttach("antlion_gib_02_gas", PATTACH_POINT_FOLLOW, self, 2)
