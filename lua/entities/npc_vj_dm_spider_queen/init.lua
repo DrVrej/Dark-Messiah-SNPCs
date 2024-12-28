@@ -189,9 +189,9 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "PriorExecution" then
 		-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
 		if bAND(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
-			return true
+			return
 		end
-		return false
+		return true
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
