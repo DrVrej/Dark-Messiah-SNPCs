@@ -11,7 +11,7 @@ ENT.HullType = HULL_TINY
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider_queen"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
-ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
+ENT.BloodColor = VJ.BLOOD_COLOR_RED -- The blood type, this will determine what it should use (decal, particle, etc.)
 ENT.Immune_AcidPoisonRadiation = true -- Immune to Acid, Poison and Radiation
 
 ENT.HasMeleeAttack = true -- Can this NPC melee attack?

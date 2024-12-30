@@ -12,9 +12,8 @@ ENT.VJTag_ID_Boss = true
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
-ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
+ENT.BloodColor = VJ.BLOOD_COLOR_RED -- The blood type, this will determine what it should use (decal, particle, etc.)
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
-ENT.Immune_Physics = true -- If set to true, the SNPC won't take damage from props
 
 ENT.HasMeleeAttack = true -- Can this NPC melee attack?
 ENT.AnimTbl_MeleeAttack = {ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK2}
@@ -76,6 +75,7 @@ ENT.SpiderQ_AllowSpawning = true
 ENT.SpiderQ_NextBirthT = 0
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Init()
+	self:SetPhysicsDamageScale(0)
 	self:SetCollisionBounds(Vector(120, 120, 230), Vector(-120, -120, 0))
 	self:SetSurroundingBounds(Vector(400, 400, 330), Vector(-400, -400, 0))
 	self:SetStepHeight(200)

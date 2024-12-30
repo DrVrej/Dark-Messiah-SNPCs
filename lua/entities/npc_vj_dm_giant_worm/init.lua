@@ -12,10 +12,9 @@ ENT.VJTag_ID_Boss = true
 ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How the NPC moves around
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
-ENT.BloodColor = "Red" -- The blood type, this will determine what it should use (decal, particle, etc.)
+ENT.BloodColor = VJ.BLOOD_COLOR_RED -- The blood type, this will determine what it should use (decal, particle, etc.)
 ENT.HasBloodPool = false -- Does it have a blood pool?
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
-ENT.Immune_Physics = true -- If set to true, the SNPC won't take damage from props
 
 ENT.HasMeleeAttack = true -- Can this NPC melee attack?
 ENT.AnimTbl_MeleeAttack = ACT_RELOAD
@@ -66,6 +65,7 @@ ENT.RangeAttackSoundLevel = 100
 ENT.Worm_IdleAngryAnim = ACT_IDLE
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Init()
+	self:SetPhysicsDamageScale(0)
 	self:SetCollisionBounds(Vector(185, 185, 1900), Vector(-185, -185, 0))
 	self:SetSurroundingBounds(Vector(600, 600, 2200), Vector(-600, -600, 0))
 	self.Worm_IdleAngryAnim = self:GetSequenceActivity(self:LookupSequence("combatidle"))
