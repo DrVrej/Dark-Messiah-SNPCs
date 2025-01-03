@@ -37,17 +37,17 @@ ENT.SoundTbl_Idle = "vj_base/ambience/acid_idle.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Init()
 	self:SetNoDraw(true)
-	ParticleEffectAttach("antlion_spit_trail", PATTACH_ABSORIGIN_FOLLOW, self, 0)
+	ParticleEffectAttach("vj_acid_idle", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnThink()
-	ParticleEffectAttach("antlion_gib_02_gas", PATTACH_ABSORIGIN_FOLLOW, self, 0)
+	ParticleEffectAttach("vj_acid_impact3_gas", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local defAng = Angle(0, 0, 0)
 --
 function ENT:OnDestroy(data, phys)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
-	ParticleEffect("antlion_gib_02_gas", data.HitPos, defAng)
+	ParticleEffect("vj_acid_impact3_gas", data.HitPos, defAng)
+	ParticleEffect("vj_acid_impact3_gas", data.HitPos, defAng)
+	ParticleEffect("vj_acid_impact3_gas", data.HitPos, defAng)
 end

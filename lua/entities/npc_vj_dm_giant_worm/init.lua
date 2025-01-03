@@ -82,7 +82,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnThink()
 	if self.Worm_CreateMouthEffect then
-		ParticleEffectAttach("antlion_gib_02_gas", PATTACH_POINT_FOLLOW, self, 2)
+		ParticleEffectAttach("vj_acid_impact3_gas", PATTACH_POINT_FOLLOW, self, 2)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
