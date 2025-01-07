@@ -69,7 +69,7 @@ function ENT:Init()
 	self:SetCollisionBounds(Vector(185, 185, 1900), Vector(-185, -185, 0))
 	self:SetSurroundingBounds(Vector(600, 600, 2200), Vector(-600, -600, 0))
 	self.Worm_IdleAngryAnim = self:GetSequenceActivity(self:LookupSequence("combatidle"))
-	self.Worm_CreateMouthEffect = GetConVar("vj_npc_noidleparticle"):GetInt() == 0
+	self.Worm_CreateMouthEffect = GetConVar("vj_npc_reduce_vfx"):GetInt() == 0
 	PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Summoned!")
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
