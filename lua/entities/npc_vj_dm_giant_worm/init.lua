@@ -118,7 +118,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 			if IsValid(self) then
 				local effectDust = EffectData()
 				effectDust:SetOrigin(self:GetPos())
-				util.Effect("VJ_Medium_Dust1", effectDust)
+				util.Effect("VJ_Dust_Medium", effectDust)
 				if self.HasSounds == true && self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
 			end
 		end)
