@@ -10,7 +10,7 @@ ENT.StartHealth = 200
 ENT.HullType = HULL_TINY
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider_queen"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
+ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.Immune_AcidPoisonRadiation = true -- Immune to Acid, Poison and Radiation
 

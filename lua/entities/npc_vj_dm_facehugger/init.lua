@@ -9,7 +9,7 @@ ENT.Model = "models/VJ_DARKMESSIAH/facehugger.mdl" -- Model(s) to spawn with | P
 ENT.StartHealth = 100
 ENT.HullType = HULL_TINY
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
+ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
 ENT.HasMeleeAttack = true -- Can this NPC melee attack?

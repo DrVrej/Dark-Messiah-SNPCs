@@ -11,7 +11,7 @@ ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
 ENT.MovementType = VJ_MOVETYPE_STATIONARY -- How the NPC moves around
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
+ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasBloodPool = false
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation

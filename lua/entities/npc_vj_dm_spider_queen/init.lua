@@ -11,7 +11,7 @@ ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"} -- NPCs with the same class with be allied to each other
+ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
 
@@ -43,7 +43,7 @@ ENT.HitGroupFlinching_Values = {
 
 ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
 ENT.AnimTbl_Death = ACT_DIESIMPLE
-ENT.DisableFootStepSoundTimer = true -- If set to true, it will disable the time system for the footstep sound code, allowing you to use other ways like model events
+ENT.DisableFootStepSoundTimer = true
 ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
 ENT.HasSoundTrack = true -- Does the NPC have a sound track?
 	-- ====== Sound Paths ====== --
@@ -95,7 +95,7 @@ end
 function ENT:OnInput(key, activator, caller, data)
 	//print(key)
 	if key == "event_emit Foot" then
-		self:FootStepSoundCode()
+		self:PlayFootstepSound()
 	elseif key == "event_mattack lefta" or key == "event_mattack leftb" or key == "event_mattack righta" or key == "event_mattack rightb" or key == "event_mattack leftc" or key == "event_mattack rightc" then
 		self.MeleeAttackDamage = 85
 		self.MeleeAttackDamageType = DMG_SLASH
