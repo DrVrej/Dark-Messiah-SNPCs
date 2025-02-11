@@ -51,7 +51,7 @@ function ENT:TranslateActivity(act)
 	return self.BaseClass.TranslateActivity(self, act)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:MultipleMeleeAttacks()
+function ENT:CustomOnMeleeAttack_BeforeStartTimer(seed)
 	local randAttack = math.random(1, 4)
 	if randAttack == 1 then
 		self.AnimTbl_MeleeAttack = "vjseq_attack_side_right"
