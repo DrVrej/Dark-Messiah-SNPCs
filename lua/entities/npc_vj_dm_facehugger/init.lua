@@ -5,31 +5,31 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = "models/VJ_DARKMESSIAH/facehugger.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
+ENT.Model = "models/VJ_DARKMESSIAH/facehugger.mdl"
 ENT.StartHealth = 100
 ENT.HullType = HULL_TINY
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
-ENT.HasMeleeAttack = true -- Can this NPC melee attack?
-ENT.MeleeAttackDistance = 35 -- How close an enemy has to be to trigger a melee attack | false = Let the base auto calculate on initialize based on the NPC's collision bounds
-ENT.MeleeAttackDamageDistance = 70 -- How far does the damage go | false = Let the base auto calculate on initialize based on the NPC's collision bounds
+ENT.HasMeleeAttack = true
+ENT.MeleeAttackDistance = 35
+ENT.MeleeAttackDamageDistance = 70
 
-ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
-ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
-ENT.DeathAnimationChance = 5 -- Put 1 if you want it to play the animation all the time
+ENT.HasExtraMeleeAttackSounds = true
+ENT.HasDeathAnimation = true
+ENT.DeathAnimationChance = 5
 ENT.AnimTbl_Death = "die_1"
-	-- ====== Flinching Code ====== --
-ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
-ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"} -- The regular flinch animations to play
-	-- ====== Sound Paths ====== --
-ENT.SoundTbl_Idle = {"vj_darkmessiah/facehugger/facehugger_misc0.wav","vj_darkmessiah/facehugger/facehugger_misc1.wav","vj_darkmessiah/facehugger/facehugger_misc2.wav"}
-ENT.SoundTbl_Alert = {"vj_darkmessiah/facehugger/facehugger_threat0.wav","vj_darkmessiah/facehugger/facehugger_threat1.wav","vj_darkmessiah/facehugger/facehugger_threat2.wav"}
-ENT.SoundTbl_BeforeMeleeAttack = {"vj_darkmessiah/facehugger/facehugger_striking0.wav","vj_darkmessiah/facehugger/facehugger_striking1.wav","vj_darkmessiah/facehugger/facehugger_striking2.wav"}
-ENT.SoundTbl_Pain = {"vj_darkmessiah/facehugger/facehugger_ouch0.wav","vj_darkmessiah/facehugger/facehugger_ouch1.wav","vj_darkmessiah/facehugger/facehugger_ouch2.wav","vj_darkmessiah/facehugger/facehugger_hail0.wav","vj_darkmessiah/facehugger/facehugger_hail1.wav","vj_darkmessiah/facehugger/facehugger_hail2.wav"}
-ENT.SoundTbl_Death = {"vj_darkmessiah/facehugger/facehugger_dying0.wav","vj_darkmessiah/facehugger/facehugger_dying1.wav","vj_darkmessiah/facehugger/facehugger_dying2.wav"}
+
+ENT.CanFlinch = 1
+ENT.FlinchChance = 8
+ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"}
+
+ENT.SoundTbl_Idle = {"vj_darkmessiah/facehugger/facehugger_misc0.wav", "vj_darkmessiah/facehugger/facehugger_misc1.wav", "vj_darkmessiah/facehugger/facehugger_misc2.wav"}
+ENT.SoundTbl_Alert = {"vj_darkmessiah/facehugger/facehugger_threat0.wav", "vj_darkmessiah/facehugger/facehugger_threat1.wav", "vj_darkmessiah/facehugger/facehugger_threat2.wav"}
+ENT.SoundTbl_BeforeMeleeAttack = {"vj_darkmessiah/facehugger/facehugger_striking0.wav", "vj_darkmessiah/facehugger/facehugger_striking1.wav", "vj_darkmessiah/facehugger/facehugger_striking2.wav"}
+ENT.SoundTbl_Pain = {"vj_darkmessiah/facehugger/facehugger_ouch0.wav", "vj_darkmessiah/facehugger/facehugger_ouch1.wav", "vj_darkmessiah/facehugger/facehugger_ouch2.wav", "vj_darkmessiah/facehugger/facehugger_hail0.wav", "vj_darkmessiah/facehugger/facehugger_hail1.wav", "vj_darkmessiah/facehugger/facehugger_hail2.wav"}
+ENT.SoundTbl_Death = {"vj_darkmessiah/facehugger/facehugger_dying0.wav", "vj_darkmessiah/facehugger/facehugger_dying1.wav", "vj_darkmessiah/facehugger/facehugger_dying2.wav"}
 
 -- Custom
 ENT.FaceH_IdleAnims = {ACT_IDLE}

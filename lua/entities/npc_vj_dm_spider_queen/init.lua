@@ -5,7 +5,7 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
+ENT.Model = "models/VJ_DARKMESSIAH/spider_queen.mdl"
 ENT.StartHealth = 10000
 ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
@@ -13,51 +13,51 @@ ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
-ENT.Immune_AcidPoisonRadiation = true -- Makes the SNPC not get damage from Acid, poison, radiation
+ENT.Immune_AcidPoisonRadiation = true
 
-ENT.HasMeleeAttack = true -- Can this NPC melee attack?
+ENT.HasMeleeAttack = true
 ENT.AnimTbl_MeleeAttack = {ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK2}
 	-- Belly attack has 1 in 6 chance
-ENT.MeleeAttackAnimationFaceEnemy = false -- Should it face the enemy while playing the melee attack animation?
-ENT.MeleeAttackDistance = 250 -- How close an enemy has to be to trigger a melee attack | false = Let the base auto calculate on initialize based on the NPC's collision bounds
-ENT.MeleeAttackDamageDistance = 350 -- How far does the damage go | false = Let the base auto calculate on initialize based on the NPC's collision bounds
-ENT.TimeUntilMeleeAttackDamage = false -- This counted in seconds | This calculates the time until it hits something
-ENT.HasMeleeAttackKnockBack = true -- If true, it will cause a knockback to its enemy
+ENT.MeleeAttackAnimationFaceEnemy = false
+ENT.MeleeAttackDistance = 250
+ENT.MeleeAttackDamageDistance = 350
+ENT.TimeUntilMeleeAttackDamage = false
+ENT.HasMeleeAttackKnockBack = true
 
-ENT.HasRangeAttack = true -- Can this NPC range attack?
+ENT.HasRangeAttack = true
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1
-ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas" -- The entity that is spawned when range attacking
-ENT.RangeDistance = 9000 -- How far can it range attack?
-ENT.RangeToMeleeDistance = 800 -- How close does it have to be until it uses melee?
-ENT.TimeUntilRangeAttackProjectileRelease = false -- How much time until the projectile code is ran?
-ENT.NextRangeAttackTime = 4 -- How much time until it can use a range attack?
+ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas"
+ENT.RangeDistance = 9000
+ENT.RangeToMeleeDistance = 800
+ENT.TimeUntilRangeAttackProjectileRelease = false
+ENT.NextRangeAttackTime = 4
 
-ENT.CanFlinch = 1 -- 0 = Don't flinch | 1 = Flinch at any damage | 2 = Flinch only from certain damages
-ENT.FlinchChance = 8 -- Chance of it flinching from 1 to x | 1 will make it always flinch
-ENT.AnimTbl_Flinch = ACT_BIG_FLINCH -- The regular flinch animations to play
+ENT.CanFlinch = 1
+ENT.FlinchChance = 8
+ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
 ENT.HitGroupFlinching_Values = {
 	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
 	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
 	{HitGroup={107}, Animation={ACT_FLINCH_RIGHTLEG}}
 }
 
-ENT.HasDeathAnimation = true -- Does it play an animation when it dies?
+ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = ACT_DIESIMPLE
 ENT.DisableFootStepSoundTimer = true
-ENT.HasExtraMeleeAttackSounds = true -- Set to true to use the extra melee attack sounds
-ENT.HasSoundTrack = true -- Does the NPC have a sound track?
-	-- ====== Sound Paths ====== --
-ENT.SoundTbl_FootStep = {"vj_darkmessiah/spiderqueen/hit1.wav","vj_darkmessiah/spiderqueen/hit2.wav","vj_darkmessiah/spiderqueen/hit3.wav"}
-ENT.SoundTbl_Idle = {"vj_darkmessiah/spiderqueen/spidermonster_misc0.wav","vj_darkmessiah/spiderqueen/spidermonster_misc1.wav","vj_darkmessiah/spiderqueen/spidermonster_misc2.wav"}
-ENT.SoundTbl_Alert = {"vj_darkmessiah/spiderqueen/spidermonster_entrance_end.wav","vj_darkmessiah/spiderqueen/spidermonster_threat0.wav","vj_darkmessiah/spiderqueen/spidermonster_threat1.wav","vj_darkmessiah/spiderqueen/spidermonster_threat2.wav"}
-ENT.SoundTbl_RangeAttack = {"vj_darkmessiah/spiderqueen/spidermonster_hail0.wav","vj_darkmessiah/spiderqueen/spidermonster_hail1.wav","vj_darkmessiah/spiderqueen/spidermonster_hail2.wav"}
-ENT.SoundTbl_Pain = {"vj_darkmessiah/spiderqueen/spidermonster_ouch_strong0.wav","vj_darkmessiah/spiderqueen/spidermonster_ouch_strong1.wav","vj_darkmessiah/spiderqueen/spidermonster_ouch_strong2.wav","vj_darkmessiah/spiderqueen/spidermonster_ouch0.wav","vj_darkmessiah/spiderqueen/spidermonster_ouch1.wav","vj_darkmessiah/spiderqueen/spidermonster_ouch2.wav"}
-ENT.SoundTbl_Death = {"vj_darkmessiah/spiderqueen/spidermonster_dying0.wav","vj_darkmessiah/spiderqueen/spidermonster_dying1.wav","vj_darkmessiah/spiderqueen/spidermonster_dying2.wav"}
+ENT.HasExtraMeleeAttackSounds = true
+ENT.HasSoundTrack = true
+
+ENT.SoundTbl_FootStep = {"vj_darkmessiah/spiderqueen/hit1.wav", "vj_darkmessiah/spiderqueen/hit2.wav", "vj_darkmessiah/spiderqueen/hit3.wav"}
+ENT.SoundTbl_Idle = {"vj_darkmessiah/spiderqueen/spidermonster_misc0.wav", "vj_darkmessiah/spiderqueen/spidermonster_misc1.wav", "vj_darkmessiah/spiderqueen/spidermonster_misc2.wav"}
+ENT.SoundTbl_Alert = {"vj_darkmessiah/spiderqueen/spidermonster_entrance_end.wav", "vj_darkmessiah/spiderqueen/spidermonster_threat0.wav", "vj_darkmessiah/spiderqueen/spidermonster_threat1.wav", "vj_darkmessiah/spiderqueen/spidermonster_threat2.wav"}
+ENT.SoundTbl_RangeAttack = {"vj_darkmessiah/spiderqueen/spidermonster_hail0.wav", "vj_darkmessiah/spiderqueen/spidermonster_hail1.wav", "vj_darkmessiah/spiderqueen/spidermonster_hail2.wav"}
+ENT.SoundTbl_Pain = {"vj_darkmessiah/spiderqueen/spidermonster_ouch_strong0.wav", "vj_darkmessiah/spiderqueen/spidermonster_ouch_strong1.wav", "vj_darkmessiah/spiderqueen/spidermonster_ouch_strong2.wav", "vj_darkmessiah/spiderqueen/spidermonster_ouch0.wav", "vj_darkmessiah/spiderqueen/spidermonster_ouch1.wav", "vj_darkmessiah/spiderqueen/spidermonster_ouch2.wav"}
+ENT.SoundTbl_Death = {"vj_darkmessiah/spiderqueen/spidermonster_dying0.wav", "vj_darkmessiah/spiderqueen/spidermonster_dying1.wav", "vj_darkmessiah/spiderqueen/spidermonster_dying2.wav"}
 ENT.SoundTbl_SoundTrack = {"vj_darkmessiah/spiderqueen/Dark Messiah - Avatar of the Spider Goddess.wav"}
 
-local sdOnMelee = {"vj_darkmessiah/spiderqueen/spidermonster_striking0.wav","vj_darkmessiah/spiderqueen/spidermonster_striking1.wav","vj_darkmessiah/spiderqueen/spidermonster_striking2.wav"}
-local sdOnMeleeWind = {"vj_darkmessiah/spiderqueen/spidermonster_whoosh0.wav","vj_darkmessiah/spiderqueen/spidermonster_whoosh1.wav","vj_darkmessiah/spiderqueen/spidermonster_whoosh2.wav","vj_darkmessiah/spiderqueen/spidermonster_whoosh3.wav","vj_darkmessiah/spiderqueen/spidermonster_whoosh4.wav"}
-local sdMeleeMissGround = {"vj_darkmessiah/spiderqueen/spidermonster_foothit0.wav","vj_darkmessiah/spiderqueen/spidermonster_foothit1.wav","vj_darkmessiah/spiderqueen/spidermonster_foothit2.wav","vj_darkmessiah/spiderqueen/spidermonster_foothit3.wav"}
+local sdOnMelee = {"vj_darkmessiah/spiderqueen/spidermonster_striking0.wav", "vj_darkmessiah/spiderqueen/spidermonster_striking1.wav", "vj_darkmessiah/spiderqueen/spidermonster_striking2.wav"}
+local sdOnMeleeWind = {"vj_darkmessiah/spiderqueen/spidermonster_whoosh0.wav", "vj_darkmessiah/spiderqueen/spidermonster_whoosh1.wav", "vj_darkmessiah/spiderqueen/spidermonster_whoosh2.wav", "vj_darkmessiah/spiderqueen/spidermonster_whoosh3.wav", "vj_darkmessiah/spiderqueen/spidermonster_whoosh4.wav"}
+local sdMeleeMissGround = {"vj_darkmessiah/spiderqueen/spidermonster_foothit0.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit1.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit2.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit3.wav"}
 local sdSpawnBabies = {"vj_darkmessiah/spider/spider_victory0.wav", "vj_darkmessiah/spider/spider_victory1.wav"}
 
 ENT.FootStepSoundLevel = 100
@@ -100,14 +100,14 @@ function ENT:OnInput(key, activator, caller, data)
 		self.MeleeAttackDamage = 85
 		self.MeleeAttackDamageType = DMG_SLASH
 		self.SoundTbl_MeleeAttackMiss = sdMeleeMissGround
-		self:MeleeAttackCode()
+		self:ExecuteMeleeAttack()
 	elseif key == "event_mattack belly" then
 		self.MeleeAttackDamage = 96
 		self.MeleeAttackDamageType = DMG_POISON
 		self.SoundTbl_MeleeAttackMiss = sdOnMeleeWind
-		self:MeleeAttackCode()
+		self:ExecuteMeleeAttack()
 	elseif key == "event_rattack poisonstart" then
-		self:RangeAttackCode()
+		self:ExecuteRangeAttack()
 	elseif key == "event_play Striking" then
 		self:PlaySoundSystem("BeforeMeleeAttack", sdOnMelee)
 	elseif key == "event_emit Whoosh" then

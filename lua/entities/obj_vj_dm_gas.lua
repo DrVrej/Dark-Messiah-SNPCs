@@ -21,12 +21,12 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 
-ENT.Model = "models/vj_base/projectiles/spit_acid_medium.mdl" -- Model(s) to spawn with | Picks a random one if it's a table
+ENT.Model = "models/vj_base/projectiles/spit_acid_medium.mdl"
 ENT.ProjectileType = VJ.PROJ_TYPE_GRAVITY
-ENT.DoesRadiusDamage = true -- Should it deal radius damage when it collides with something?
+ENT.DoesRadiusDamage = true
 ENT.RadiusDamageRadius = 200
 ENT.RadiusDamage = 30
-ENT.RadiusDamageUseRealisticRadius = true -- Should the damage decrease the farther away the hit entity is from the radius origin?
+ENT.RadiusDamageUseRealisticRadius = true
 ENT.RadiusDamageType = DMG_POISON
 ENT.SoundTbl_Idle = "vj_base/ambience/acid_idle.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
