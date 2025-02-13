@@ -14,7 +14,7 @@ ENT.MovementType = VJ_MOVETYPE_STATIONARY
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasBloodPool = false
-ENT.Immune_AcidPoisonRadiation = true
+ENT.Immune_Toxic = true
 
 ENT.HasMeleeAttack = true
 ENT.AnimTbl_MeleeAttack = ACT_RELOAD
@@ -38,7 +38,7 @@ ENT.AnimTbl_Death = "worm_die"
 ENT.DeathAnimationTime = false
 ENT.HasSoundTrack = true
 
-ENT.CanFlinch = 2
+ENT.CanFlinch = "DamageTypes"
 ENT.FlinchChance = 7
 ENT.AnimTbl_Flinch = {"worm_hit_back", "worm_hit_front"}
 

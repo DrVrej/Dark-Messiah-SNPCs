@@ -12,7 +12,7 @@ ENT.EntitiesToNoCollide = {"npc_vj_dm_spider_queen"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
-ENT.Immune_AcidPoisonRadiation = true
+ENT.Immune_Toxic = true
 
 ENT.HasMeleeAttack = true
 ENT.MeleeAttackDamage = 25
@@ -33,13 +33,13 @@ ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = ACT_DIESIMPLE
 ENT.HasExtraMeleeAttackSounds = true
 
-ENT.CanFlinch = 1
+ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
 ENT.HitGroupFlinching_Values = {
-	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
-	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
-	{HitGroup={107}, Animation={ACT_FLINCH_RIGHTLEG}}
+	{HitGroup = 103, Animation = ACT_SMALL_FLINCH},
+	{HitGroup = 106, Animation = ACT_FLINCH_LEFTLEG},
+	{HitGroup = 107, Animation = ACT_FLINCH_RIGHTLEG}
 }
 
 ENT.SoundTbl_Idle = {"vj_darkmessiah/spider/spider_misc0.wav", "vj_darkmessiah/spider/spider_misc2.wav", "vj_darkmessiah/spider/spider_misc3.wav", "vj_darkmessiah/spider/spider_hail0.wav", "vj_darkmessiah/spider/spider_hail1.wav", "vj_darkmessiah/spider/spider_hail2.wav"}

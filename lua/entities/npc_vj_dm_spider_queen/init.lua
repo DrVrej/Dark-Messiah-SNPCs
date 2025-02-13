@@ -13,7 +13,7 @@ ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
-ENT.Immune_AcidPoisonRadiation = true
+ENT.Immune_Toxic = true
 
 ENT.HasMeleeAttack = true
 ENT.AnimTbl_MeleeAttack = {ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK1, ACT_MELEE_ATTACK2}
@@ -32,7 +32,7 @@ ENT.RangeToMeleeDistance = 800
 ENT.TimeUntilRangeAttackProjectileRelease = false
 ENT.NextRangeAttackTime = 4
 
-ENT.CanFlinch = 1
+ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
 ENT.HitGroupFlinching_Values = {

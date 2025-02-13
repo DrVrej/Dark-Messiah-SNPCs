@@ -21,7 +21,7 @@ ENT.HasDeathAnimation = true
 ENT.DeathAnimationChance = 5
 ENT.AnimTbl_Death = "die_1"
 
-ENT.CanFlinch = 1
+ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = {ACT_BIG_FLINCH, "hit_back_long", "hit_back_medium", "hit_left_long", "hit_left_medium", "hit_right_long", "hit_right_medium"}
 
