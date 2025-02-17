@@ -23,9 +23,9 @@ ENT.TimeUntilMeleeAttackDamage = false
 
 ENT.HasRangeAttack = true
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1
-ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas"
-ENT.RangeDistance = 800
-ENT.RangeToMeleeDistance = 300
+ENT.RangeAttackProjectiles = "obj_vj_dm_gas"
+ENT.RangeAttackMaxDistance = 800
+ENT.RangeAttackMinDistance = 300
 ENT.TimeUntilRangeAttackProjectileRelease = false
 ENT.NextRangeAttackTime = 4
 
@@ -36,7 +36,7 @@ ENT.HasExtraMeleeAttackSounds = true
 ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
-ENT.HitGroupFlinching_Values = {
+ENT.FlinchHitGroupMap = {
 	{HitGroup = 103, Animation = ACT_SMALL_FLINCH},
 	{HitGroup = 106, Animation = ACT_FLINCH_LEFTLEG},
 	{HitGroup = 107, Animation = ACT_FLINCH_RIGHTLEG}

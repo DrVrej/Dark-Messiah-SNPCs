@@ -26,16 +26,16 @@ ENT.HasMeleeAttackKnockBack = true
 
 ENT.HasRangeAttack = true
 ENT.AnimTbl_RangeAttack = ACT_RANGE_ATTACK1
-ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas"
-ENT.RangeDistance = 9000
-ENT.RangeToMeleeDistance = 800
+ENT.RangeAttackProjectiles = "obj_vj_dm_gas"
+ENT.RangeAttackMaxDistance = 9000
+ENT.RangeAttackMinDistance = 800
 ENT.TimeUntilRangeAttackProjectileRelease = false
 ENT.NextRangeAttackTime = 4
 
 ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
-ENT.HitGroupFlinching_Values = {
+ENT.FlinchHitGroupMap = {
 	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
 	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
 	{HitGroup={107}, Animation={ACT_FLINCH_RIGHTLEG}}
@@ -60,7 +60,7 @@ local sdOnMeleeWind = {"vj_darkmessiah/spiderqueen/spidermonster_whoosh0.wav", "
 local sdMeleeMissGround = {"vj_darkmessiah/spiderqueen/spidermonster_foothit0.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit1.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit2.wav", "vj_darkmessiah/spiderqueen/spidermonster_foothit3.wav"}
 local sdSpawnBabies = {"vj_darkmessiah/spider/spider_victory0.wav", "vj_darkmessiah/spider/spider_victory1.wav"}
 
-ENT.FootStepSoundLevel = 100
+ENT.FootstepSoundLevel = 100
 ENT.AlertSoundLevel = 100
 ENT.IdleSoundLevel = 100
 ENT.MeleeAttackSoundLevel = 100

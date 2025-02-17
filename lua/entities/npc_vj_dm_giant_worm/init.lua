@@ -26,9 +26,9 @@ ENT.HasMeleeAttackKnockBack = true
 
 ENT.HasRangeAttack = true
 ENT.AnimTbl_RangeAttack = ACT_COWER
-ENT.RangeAttackEntityToSpawn = "obj_vj_dm_gas"
-ENT.RangeDistance = 10000
-ENT.RangeToMeleeDistance = 1000
+ENT.RangeAttackProjectiles = "obj_vj_dm_gas"
+ENT.RangeAttackMaxDistance = 10000
+ENT.RangeAttackMinDistance = 1000
 ENT.NextRangeAttackTime = 0
 ENT.TimeUntilRangeAttackProjectileRelease = 1.8
 
