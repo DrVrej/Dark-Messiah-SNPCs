@@ -111,7 +111,7 @@ function ENT:OnInput(key, activator, caller, data)
 	elseif key == "event_play Striking" then
 		self:PlaySoundSystem("BeforeMeleeAttack", sdOnMelee)
 	elseif key == "event_emit Whoosh" then
-		self:PlaySoundSystem("MeleeAttackMiss", sdOnMeleeWind, VJ.EmitSound)
+		self:PlaySoundSystem("MeleeAttackMiss", sdOnMeleeWind)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
