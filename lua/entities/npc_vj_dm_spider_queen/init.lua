@@ -186,7 +186,7 @@ local bAND = bit.band
 --
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnFlinch(dmginfo, hitgroup, status)
-	if status == "PriorExecution" then
+	if status == "Init" then
 		-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
 		if bAND(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
 			return
@@ -196,7 +196,7 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "Initial" then
+	if status == "Init" then
 		PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Defeated!")
 	elseif status == "DeathAnim" then
 		util.ScreenShake(self:GetPos(), 100, 200, 5, 3000)

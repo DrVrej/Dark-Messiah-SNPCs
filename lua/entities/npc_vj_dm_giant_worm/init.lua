@@ -110,7 +110,7 @@ function ENT:RangeAttackProjVel(projectile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "Initial" then
+	if status == "Init" then
 		PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Defeated!")
 	elseif status == "DeathAnim" then
 		util.ScreenShake(self:GetPos(), 100, 200, 5.5, 3000)
