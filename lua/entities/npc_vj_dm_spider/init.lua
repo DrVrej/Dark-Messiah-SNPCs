@@ -87,10 +87,12 @@ function ENT:OnInput(key, activator, caller, data)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomRangeAttackCode_BeforeProjectileSpawn(projectile)
-	-- Lower the damage and its radius for the regular spider
-	projectile.RadiusDamageRadius = 100
-	projectile.RadiusDamage = 20
+function ENT:OnRangeAttackExecute(status, enemy, projectile)
+	if status == "PreProjSpawn" then
+		-- Lower the damage and its radius for the regular spider
+		projectile.RadiusDamageRadius = 100
+		projectile.RadiusDamage = 20
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:RangeAttackProjPos(projectile)
