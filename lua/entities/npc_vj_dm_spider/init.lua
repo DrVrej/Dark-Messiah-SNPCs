@@ -88,7 +88,7 @@ function ENT:OnInput(key, activator, caller, data)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
-	if status == "PreProjSpawn" then
+	if status == "PreSpawn" then
 		-- Lower the damage and its radius for the regular spider
 		projectile.RadiusDamageRadius = 100
 		projectile.RadiusDamage = 20

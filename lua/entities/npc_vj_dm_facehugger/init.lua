@@ -51,27 +51,29 @@ function ENT:TranslateActivity(act)
 	return self.BaseClass.TranslateActivity(self, act)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnMeleeAttack_BeforeStartTimer(seed)
-	local randAttack = math.random(1, 4)
-	if randAttack == 1 then
-		self.AnimTbl_MeleeAttack = "vjseq_attack_side_right"
-		self.TimeUntilMeleeAttackDamage = 0.85
-		self.MeleeAttackAnimationDecreaseLengthAmount = 0.8
-		self.MeleeAttackDamage = 25
-	elseif randAttack == 2 then
-		self.AnimTbl_MeleeAttack = "vjseq_attack_side_left"
-		self.TimeUntilMeleeAttackDamage = 0.85
-		self.MeleeAttackAnimationDecreaseLengthAmount = 0.2
-		self.MeleeAttackDamage = 25
-	elseif randAttack == 3 then
-		self.AnimTbl_MeleeAttack = "vjseq_attack_forward_1"
-		self.TimeUntilMeleeAttackDamage = 0.8
-		self.MeleeAttackAnimationDecreaseLengthAmount = 0
-		self.MeleeAttackDamage = 30
-	elseif randAttack == 4 then
-		self.AnimTbl_MeleeAttack = "vjseq_attack_forward_4"
-		self.TimeUntilMeleeAttackDamage = 1
-		self.MeleeAttackAnimationDecreaseLengthAmount = 0
-		self.MeleeAttackDamage = 38
+function ENT:OnMeleeAttack(status, enemy)
+	if status == "Init" then
+		local randAttack = math.random(1, 4)
+		if randAttack == 1 then
+			self.AnimTbl_MeleeAttack = "vjseq_attack_side_right"
+			self.TimeUntilMeleeAttackDamage = 0.85
+			self.MeleeAttackAnimationDecreaseLengthAmount = 0.8
+			self.MeleeAttackDamage = 25
+		elseif randAttack == 2 then
+			self.AnimTbl_MeleeAttack = "vjseq_attack_side_left"
+			self.TimeUntilMeleeAttackDamage = 0.85
+			self.MeleeAttackAnimationDecreaseLengthAmount = 0.2
+			self.MeleeAttackDamage = 25
+		elseif randAttack == 3 then
+			self.AnimTbl_MeleeAttack = "vjseq_attack_forward_1"
+			self.TimeUntilMeleeAttackDamage = 0.8
+			self.MeleeAttackAnimationDecreaseLengthAmount = 0
+			self.MeleeAttackDamage = 30
+		elseif randAttack == 4 then
+			self.AnimTbl_MeleeAttack = "vjseq_attack_forward_4"
+			self.TimeUntilMeleeAttackDamage = 1
+			self.MeleeAttackAnimationDecreaseLengthAmount = 0
+			self.MeleeAttackDamage = 38
+		end
 	end
 end
