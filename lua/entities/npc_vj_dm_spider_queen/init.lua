@@ -161,8 +161,8 @@ function ENT:MeleeAttackKnockbackVelocity(hitEnt)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnMeleeAttack_Miss()
-	if self:IsOnGround() && self:GetActivity() != ACT_MELEE_ATTACK2 then
+function ENT:OnMeleeAttackExecute(status, ent, isProp)
+	if status == "Miss" && self:IsOnGround() && self:GetActivity() != ACT_MELEE_ATTACK2 then
 		local spawnPos = self:GetPos() + self:GetForward()*200
 		util.ScreenShake(spawnPos, 16, 100, 1, 2000)
 		for _ = 1, 3 do

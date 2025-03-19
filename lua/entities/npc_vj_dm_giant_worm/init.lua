@@ -97,8 +97,10 @@ function ENT:MeleeAttackKnockbackVelocity(hitEnt)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnMeleeAttack_Miss()
-	util.ScreenShake(self:GetPos(), 16, 100, 1, 2500)
+function ENT:OnMeleeAttackExecute(status, ent, isProp)
+	if status == "Miss" then
+		util.ScreenShake(self:GetPos(), 16, 100, 1, 2500)
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:RangeAttackProjPos(projectile)
