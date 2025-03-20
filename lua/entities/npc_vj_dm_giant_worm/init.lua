@@ -93,7 +93,7 @@ function ENT:OnAlert(ent)
 	self:PlayAnim(alertAnims, true, false, true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:MeleeAttackKnockbackVelocity(hitEnt)
+function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
